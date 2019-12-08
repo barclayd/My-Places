@@ -2,10 +2,10 @@ import { IPoint, ICoords } from '../models/IPoint';
 import * as faker from 'faker';
 
 export default class LocationService implements ICoords {
-  public coords() {
+  public coords(): IPoint {
     return {
-      latitude: parseFloat(faker.address.latitude()),
-      longitude: parseFloat(faker.address.latitude()),
-    } as IPoint;
+      lat: parseFloat(faker.address.latitude()),
+      lng: parseFloat(faker.address.latitude()),
+    };
   }
 }

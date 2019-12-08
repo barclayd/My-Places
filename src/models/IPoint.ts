@@ -1,6 +1,6 @@
 export interface IPoint {
-  latitude: number;
-  longitude: number;
+  lat: number;
+  lng: number;
 }
 
 export interface ICoords {
