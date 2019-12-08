@@ -1,0 +1,14 @@
+{
+  "name": "my-places",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "start": "parcel index.html"
+  },
+  "dependencies": {
+    "parcel": "^1.12.4"
+  },
+  "devDependencies": {
+    "typescript": "^3.7.3"
+  }
+}
