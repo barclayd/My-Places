@@ -5,8 +5,6 @@ import InfoWindow = google.maps.InfoWindow;
 export default class MapService {
   private zoomLevel = 3;
   private readonly googleMap: google.maps.Map;
-  private googleMapMarker: Marker;
-
   constructor(mapDivId: string) {
     this.googleMap = new google.maps.Map(document.getElementById(mapDivId), {
       zoom: this.zoomLevel,
@@ -15,19 +13,19 @@ export default class MapService {
         lng: 0,
       } as IPoint,
     });
+    this.display();
   }
 
-  public display() {
+  private display() {
     return this.googleMap;
   }
 
   private generateMarker(position: IPoint, label: string): Marker {
-    this.googleMapMarker = new google.maps.Marker({
+    return new google.maps.Marker({
       map: this.googleMap,
       position,
       label,
     });
-    return this.googleMapMarker;
   }
 
   private popupWindow(text: string): InfoWindow {
