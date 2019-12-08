@@ -6,9 +6,11 @@
     "start": "parcel index.html"
   },
   "dependencies": {
+    "faker": "^4.1.0",
     "parcel": "^1.12.4"
   },
   "devDependencies": {
+    "@types/faker": "^4.1.8",
     "typescript": "^3.7.3"
   }
 }
