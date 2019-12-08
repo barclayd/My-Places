@@ -1,8 +1,8 @@
+import MapService from './services/MapServicee';
 import User from './User';
 
 const user = new User();
 
-new google.maps.Map(document.getElementById('map'), {
-  zoom: 1,
-  center: user.location,
-});
+const mapService = new MapService(user);
+
+mapService.display();
