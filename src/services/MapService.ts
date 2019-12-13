@@ -1,5 +1,6 @@
 import { IPoint } from '../models/IPoint';
 import Marker = google.maps.Marker;
+import Map = google.maps.Map;
 import InfoWindow = google.maps.InfoWindow;
 
 export default class MapService {
@@ -16,7 +17,7 @@ export default class MapService {
     this.display();
   }
 
-  private display() {
+  private display(): Map {
     return this.googleMap;
   }
 
@@ -34,7 +35,7 @@ export default class MapService {
     });
   }
 
-  private popupWindowListener(popupWindow: InfoWindow, marker: Marker) {
+  private popupWindowListener(popupWindow: InfoWindow, marker: Marker): void {
     google.maps.event.addListener(marker, 'click', () => {
       popupWindow.open(this.googleMap, marker);
     });
