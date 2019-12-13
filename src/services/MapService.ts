@@ -2,6 +2,7 @@ import { IPoint } from '../models/IPoint';
 import Marker = google.maps.Marker;
 import Map = google.maps.Map;
 import InfoWindow = google.maps.InfoWindow;
+import { IMappable } from '../models/IMappable';
 
 export default class MapService {
   private zoomLevel = 3;
@@ -21,7 +22,10 @@ export default class MapService {
     return this.googleMap;
   }
 
-  private generateMarker(position: IPoint, label: string): Marker {
+  private generateMarker({
+    location: position,
+    name: label,
+  }: IMappable): Marker {
     return new google.maps.Marker({
       map: this.googleMap,
       position,
@@ -29,9 +33,9 @@ export default class MapService {
     });
   }
 
-  private popupWindow(text: string): InfoWindow {
+  private popupWindow(mappable: IMappable): InfoWindow {
     return new google.maps.InfoWindow({
-      content: `<div>${text}</div>`,
+      content: `<div>${mappable.markerContent()}</div>`,
     });
   }
 
@@ -41,9 +45,9 @@ export default class MapService {
     });
   }
 
-  public displayMarker(position: IPoint, label: string, text: string) {
-    const marker = this.generateMarker(position, label);
-    const popupWindow = this.popupWindow(text);
+  public displayMarker(mappable: IMappable) {
+    const marker = this.generateMarker(mappable);
+    const popupWindow = this.popupWindow(mappable);
     this.popupWindowListener(popupWindow, marker);
   }
 }

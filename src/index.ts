@@ -10,21 +10,11 @@ const mapService = new MapService('map');
 Array(users)
   .fill('')
   .forEach(() => {
-    const user = new User();
-    mapService.displayMarker(
-      user.location,
-      user.name,
-      user.markerContent(),
-    );
+    mapService.displayMarker(new User());
   });
 
 Array(companies)
   .fill('')
   .forEach(() => {
-    const company = new Company();
-    mapService.displayMarker(
-      company.location,
-      company.name,
-        company.markerContent(),
-    );
+    mapService.displayMarker(new Company());
   });
